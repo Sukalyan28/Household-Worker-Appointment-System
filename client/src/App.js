@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Homepage";
 import Spinner from "./components/Spinner";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import PublicRoute from "./components/PublicRoute";
 import Users from "./pages/admin/Users";
-import Doctors from "./pages/admin/Doctors";
-import ApplyDoctor from "./pages/ApplyDoctor";
-import Profile from "./pages/doctor/Profile";
+import Workers from "./pages/admin/Workers";
+import ApplyWorker from "./pages/ApplyWorker";
+import Profile from "./pages/worker/Profile";
 import NotificationPage from "./pages/NotificationPage";
 import BookingPage from "./pages/BookingPage";
 import Appointments from "./pages/Appointments";
-import DoctorAppointments from "./pages/doctor/DoctorAppointments";
+import WorkerAppointments from "./pages/worker/WorkerAppointments";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
 
@@ -25,10 +25,10 @@ function App() {
         ) : (
           <Routes>
             <Route
-              path="/apply-doctor"
+              path="/apply-worker"
               element={
                 <ProtectedRoutes>
-                  <ApplyDoctor />
+                  <ApplyWorker />
                 </ProtectedRoutes>
               }
             />
@@ -42,15 +42,15 @@ function App() {
               }
             />
             <Route
-              path="/admin/doctors"
+              path="/admin/workers"
               element={
                 <ProtectedRoutes>
-                  <Doctors />
+                  <Workers />
                 </ProtectedRoutes>
               }
             />
             <Route
-              path="/doctor/profile/:id"
+              path="/worker/profile/:id"
               element={
                 <ProtectedRoutes>
                   <Profile />
@@ -58,7 +58,7 @@ function App() {
               }
             />
             <Route
-              path="/doctor/book-appointment/:doctorId"
+              path="/worker/book-appointment/:workerId"
               element={
                 <ProtectedRoutes>
                   <BookingPage />
@@ -99,10 +99,10 @@ function App() {
               }
             />
             <Route
-              path="/doctor-appointments"
+              path="/worker-appointments"
               element={
                 <ProtectedRoutes>
-                  <DoctorAppointments />
+                  <WorkerAppointments />
                 </ProtectedRoutes>
               }
             />

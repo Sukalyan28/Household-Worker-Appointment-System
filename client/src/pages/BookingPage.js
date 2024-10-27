@@ -20,7 +20,7 @@ const BookingPage = () => {
     try {
       const res = await axios.post(
         "/api/v1/worker/getWorkerById",
-        { workerId: params.doctorId },
+        { workerId: params.workerId },
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token")
