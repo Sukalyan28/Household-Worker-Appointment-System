@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./../../components/Layout";
+import Layout from "../../components/Layout";
 
 import axios from "axios";
 
 import moment from "moment";
 import { message, Table } from "antd";
 
-const DoctorAppointments = () => {
+const WorkerAppointments = () => {
   const [appointments, setAppointments] = useState([]);
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("/api/v1/doctor//doctor-appointments", {
+      const res = await axios.get("/api/v1/worker//worker-appointments", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
       });
       if (res.data.success) {
         setAppointments(res.data.data);
@@ -31,12 +31,12 @@ const DoctorAppointments = () => {
   const handleStatus = async (record, status) => {
     try {
       const res = await axios.post(
-        "/api/v1/doctor/update-status",
+        "/api/v1/worker/update-status",
         { appointmentsId: record._id, status },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       if (res.data.success) {
@@ -52,28 +52,27 @@ const DoctorAppointments = () => {
   const columns = [
     {
       title: "ID",
-      dataIndex: "_id",
+      dataIndex: "_id"
     },
     {
       title: "Date & Time",
       dataIndex: "date",
-      render: (text, record) => (
+      render: (text, record) =>
         <span>
           {moment(record.date).format("DD-MM-YYYY")} &nbsp;
           {moment(record.time).format("HH:mm")}
         </span>
-      ),
     },
     {
       title: "Status",
-      dataIndex: "status",
+      dataIndex: "status"
     },
     {
       title: "Actions",
       dataIndex: "actions",
-      render: (text, record) => (
+      render: (text, record) =>
         <div className="d-flex">
-          {record.status === "pending" && (
+          {record.status === "pending" &&
             <div className="d-flex">
               <button
                 className="btn btn-success"
@@ -87,11 +86,9 @@ const DoctorAppointments = () => {
               >
                 Reject
               </button>
-            </div>
-          )}
+            </div>}
         </div>
-      ),
-    },
+    }
   ];
   return (
     <Layout>
@@ -101,4 +98,4 @@ const DoctorAppointments = () => {
   );
 };
 
-export default DoctorAppointments;
+export default WorkerAppointments;

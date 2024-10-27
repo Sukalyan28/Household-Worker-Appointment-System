@@ -4,21 +4,17 @@ import Layout from "./../components/Layout";
 import { Row } from "antd";
 import DoctorList from "../components/DoctorList";
 const HomePage = () => {
-  const [doctors, setDoctors] = useState([]);
+  const [workers, SetWorkers] = useState([]);
   // login user data
   const getUserData = async () => {
     try {
-      const res = await axios.get(
-        "/api/v1/user/getAllDoctors",
-
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
+      const res = await axios.get("/api/v1/user/getAllWorkers", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token")
         }
-      );
+      });
       if (res.data.success) {
-        setDoctors(res.data.data);
+        SetWorkers(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -32,7 +28,7 @@ const HomePage = () => {
     <Layout>
       <h1 className="text-center">Home Page</h1>
       <Row>
-        {doctors && doctors.map((doctor) => <DoctorList doctor={doctor} />)}
+        {workers && workers.map(worker => <WorkerList worker={worker} />)}
       </Row>
     </Layout>
   );

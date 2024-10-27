@@ -1,34 +1,34 @@
 import React from "react";
-import Layout from "./../components/Layout";
+import Layout from "../components/Layout";
 import { Col, Form, Input, Row, TimePicker, message } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import axios from "axios";
 import moment from "moment";
-const ApplyDoctor = () => {
-  const { user } = useSelector((state) => state.user);
+const ApplyWorker = () => {
+  const { user } = useSelector(state => state.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //handle form
-  const handleFinish = async (values) => {
+  const handleFinish = async values => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/apply-doctor",
+        "/api/v1/user/apply-worker",
         {
           ...values,
           userId: user._id,
           timings: [
             moment(values.timings[0]).format("HH:mm"),
-            moment(values.timings[1]).format("HH;mm"),
-          ],
+            moment(values.timings[1]).format("HH;mm")
+          ]
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       dispatch(hideLoading());
@@ -46,7 +46,7 @@ const ApplyDoctor = () => {
   };
   return (
     <Layout>
-      <h1 className="text-center">Apply Doctor</h1>
+      <h1 className="text-center">Apply Worker</h1>
       <Form layout="vertical" onFinish={handleFinish} className="m-3">
         <h4 className="">Personal Details : </h4>
         <Row gutter={20}>
@@ -143,7 +143,7 @@ const ApplyDoctor = () => {
               <TimePicker.RangePicker format="HH:mm" />
             </Form.Item>
           </Col>
-          <Col xs={24} md={24} lg={8}></Col>
+          <Col xs={24} md={24} lg={8} />
           <Col xs={24} md={24} lg={8}>
             <button className="btn btn-primary form-btn" type="submit">
               Submit
@@ -155,4 +155,4 @@ const ApplyDoctor = () => {
   );
 };
 
-export default ApplyDoctor;
+export default ApplyWorker;

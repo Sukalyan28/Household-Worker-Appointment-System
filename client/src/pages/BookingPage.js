@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 
 const BookingPage = () => {
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector(state => state.user);
   const params = useParams();
-  const [doctors, setDoctors] = useState([]);
+  const [workers, SetWorkers] = useState([]);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [isAvailable, setIsAvailable] = useState();
@@ -19,16 +19,16 @@ const BookingPage = () => {
   const getUserData = async () => {
     try {
       const res = await axios.post(
-        "/api/v1/doctor/getDoctorById",
-        { doctorId: params.doctorId },
+        "/api/v1/worker/getWorkerById",
+        { workerId: params.doctorId },
         {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
+            Authorization: "Bearer " + localStorage.getItem("token")
+          }
         }
       );
       if (res.data.success) {
-        setDoctors(res.data.data);
+        SetWorkers(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -41,11 +41,11 @@ const BookingPage = () => {
       dispatch(showLoading());
       const res = await axios.post(
         "/api/v1/user/booking-availbility",
-        { doctorId: params.doctorId, date, time },
+        { workerId: params.workerId, date, time },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       dispatch(hideLoading());
@@ -72,17 +72,17 @@ const BookingPage = () => {
       const res = await axios.post(
         "/api/v1/user/book-appointment",
         {
-          doctorId: params.doctorId,
+          workerId: params.workerId,
           userId: user._id,
-          doctorInfo: doctors,
+          workerInfo: workers,
           userInfo: user,
           date: date,
-          time: time,
+          time: time
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       dispatch(hideLoading());
@@ -103,28 +103,30 @@ const BookingPage = () => {
     <Layout>
       <h3>Booking Page</h3>
       <div className="container m-2">
-        {doctors && (
+        {workers &&
           <div>
             <h4>
-              Dr.{doctors.firstName} {doctors.lastName}
+              Dr.{workers.firstName} {workers.lastName}
             </h4>
-            <h4>Fees : {doctors.feesPerCunsaltation}</h4>
             <h4>
-              Timings : {doctors.timings && doctors.timings[0]} -{" "}
-              {doctors.timings && doctors.timings[1]}{" "}
+              Fees : {workers.feesPerCunsaltation}
+            </h4>
+            <h4>
+              Timings : {workers.timings && workers.timings[0]} -{" "}
+              {workers.timings && workers.timings[1]}{" "}
             </h4>
             <div className="d-flex flex-column w-50">
               <DatePicker
                 className="m-2"
                 format="DD-MM-YYYY"
-                onChange={(value) => {
+                onChange={value => {
                   setDate(moment(value).format("DD-MM-YYYY"));
                 }}
               />
               <TimePicker
                 format="HH:mm"
                 className="m-2"
-                onChange={(value) => {
+                onChange={value => {
                   setTime(moment(value).format("HH:mm"));
                 }}
               />
@@ -139,8 +141,7 @@ const BookingPage = () => {
                 Book Now
               </button>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
     </Layout>
   );

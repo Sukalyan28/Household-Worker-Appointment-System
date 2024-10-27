@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "./../../components/Layout";
+import Layout from "../../components/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { Col, Form, Input, Row, TimePicker, message } from "antd";
@@ -8,30 +8,30 @@ import { showLoading, hideLoading } from "../../redux/features/alertSlice";
 import moment from "moment";
 
 const Profile = () => {
-  const { user } = useSelector((state) => state.user);
-  const [doctor, setDoctor] = useState(null);
+  const { user } = useSelector(state => state.user);
+  const [worker, setWorker] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
   // update doc ==========
   //handle form
-  const handleFinish = async (values) => {
+  const handleFinish = async values => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/doctor/updateProfile",
+        "/api/v1/worker/updateProfile",
         {
           ...values,
           userId: user._id,
           timings: [
             moment(values.timings[0]).format("HH:mm"),
-            moment(values.timings[1]).format("HH:mm"),
-          ],
+            moment(values.timings[1]).format("HH:mm")
+          ]
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       dispatch(hideLoading());
@@ -50,19 +50,19 @@ const Profile = () => {
   // update doc ==========
 
   //getDOc Details
-  const getDoctorInfo = async () => {
+  const getWorkerInfo = async () => {
     try {
       const res = await axios.post(
-        "/api/v1/doctor/getDoctorInfo",
+        "/api/v1/worker/getWorkerInfo",
         { userId: params.id },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
       );
       if (res.data.success) {
-        setDoctor(res.data.data);
+        setWorker(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -70,22 +70,22 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    getDoctorInfo();
+    getWorkerInfo();
     //eslint-disable-next-line
   }, []);
   return (
     <Layout>
       <h1>Manage Profile</h1>
-      {doctor && (
+      {worker &&
         <Form
           layout="vertical"
           className="m-3"
           initialValues={{
-            ...doctor,
+            ...worker,
             timings: [
-              moment(doctor.timings[0], "HH:mm"),
-              moment(doctor.timings[1], "HH:mm"),
-            ],
+              moment(worker.timings[0], "HH:mm"),
+              moment(worker.timings[1], "HH:mm")
+            ]
           }}
           onFinish={handleFinish}
         >
@@ -143,7 +143,7 @@ const Profile = () => {
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="text" placeholder="your clinic address" />
+                <Input type="text" placeholder="your house address" />
               </Form.Item>
             </Col>
           </Row>
@@ -171,8 +171,8 @@ const Profile = () => {
             </Col>
             <Col xs={24} md={24} lg={8}>
               <Form.Item
-                label="Fees Per Cunsaltation"
-                name="feesPerCunsaltation"
+                label="Fees"
+                name="fees"
                 required
                 rules={[{ required: true }]}
               >
@@ -189,30 +189,29 @@ const Profile = () => {
                 <TimePicker.RangePicker
                   format="HH:mm"
                   defaultValue={[
-                    moment(doctor.timings[0], "HH:mm"),
-                    moment(doctor.timings[1], "HH:mm"),
+                    moment(worker.timings[0], "HH:mm"),
+                    moment(worker.timings[1], "HH:mm")
                   ]}
-                  onChange={(value) => {
-                    setDoctor((prevDoctor) => ({
-                      ...prevDoctor,
+                  onChange={value => {
+                    setWorker(prevWorker => ({
+                      ...prevWorker,
                       timings: [
                         value[0].format("HH:mm"),
-                        value[1].format("HH:mm"),
-                      ],
+                        value[1].format("HH:mm")
+                      ]
                     }));
                   }}
                 />
               </Form.Item>
             </Col>
-            <Col xs={24} md={24} lg={8}></Col>
+            <Col xs={24} md={24} lg={8} />
             <Col xs={24} md={24} lg={8}>
               <button className="btn btn-primary form-btn" type="submit">
                 Update
               </button>
             </Col>
           </Row>
-        </Form>
-      )}
+        </Form>}
     </Layout>
   );
 };

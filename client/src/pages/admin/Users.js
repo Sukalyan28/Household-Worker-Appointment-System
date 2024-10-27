@@ -10,8 +10,8 @@ const Users = () => {
     try {
       const res = await axios.get("/api/v1/admin/getAllUsers", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
       });
       if (res.data.success) {
         setUsers(res.data.data);
@@ -29,26 +29,28 @@ const Users = () => {
   const columns = [
     {
       title: "Name",
-      dataIndex: "name",
+      dataIndex: "name"
     },
     {
       title: "Email",
-      dataIndex: "email",
+      dataIndex: "email"
     },
     {
-      title: "Doctor",
-      dataIndex: "isDoctor",
-      render: (text, record) => <span>{record.isDoctor ? "Yes" : "No"}</span>,
+      title: "Worker",
+      dataIndex: "isWorker",
+      render: (text, record) =>
+        <span>
+          {record.isWorker ? "Yes" : "No"}
+        </span>
     },
     {
       title: "Actions",
       dataIndex: "actions",
-      render: (text, record) => (
+      render: (text, record) =>
         <div className="d-flex">
           <button className="btn btn-danger">Block</button>
         </div>
-      ),
-    },
+    }
   ];
 
   return (
