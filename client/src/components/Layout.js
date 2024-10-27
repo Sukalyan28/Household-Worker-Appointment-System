@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
   };
 
   //===========doc menu=============
-  const doctorMenu = [
+  const workerMenu = [
     {
       name: "Home",
       path: "/",
@@ -26,13 +26,13 @@ const Layout = ({ children }) => {
     },
     {
       name: "Appointments",
-      path: "/doctor-appointments",
+      path: "/worker-appointments",
       icon: "fa fa-thin fa-list",
     },
 
     {
       name: "Profile",
-      path: `/doctor/profile/${user?._id}`,
+      path: `/worker/profile/${user?._id}`,
       icon: "fa fa-thin fa-user",
     },
     //   {
@@ -45,8 +45,8 @@ const Layout = ({ children }) => {
   // redering menu list
   const SidebarMenu = user?.isAdmin
     ? adminMenu
-    : user?.isDoctor
-    ? doctorMenu
+    : user?.isWorker
+    ? workerMenu
     : userMenu;
   return (
     <>

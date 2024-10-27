@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Layout from "./../components/Layout";
 import { Row } from "antd";
-import DoctorList from "../components/DoctorList";
+import DoctorList from "../components/WorkerList";
 const HomePage = () => {
   const [workers, SetWorkers] = useState([]);
   // login user data

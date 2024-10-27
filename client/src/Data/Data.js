@@ -2,23 +2,23 @@ export const userMenu = [
   {
     name: "Home",
     path: "/",
-    icon: "fa fa-thin fa-house",
+    icon: "fa fa-thin fa-house"
   },
   {
     name: "Appointments",
     path: "/appointments",
-    icon: "fa fa-thin fa-list",
+    icon: "fa fa-thin fa-list"
   },
   {
-    name: "Apply Doctor",
-    path: "/apply-doctor",
-    icon: "fa fa-thin fa-user-doctor",
+    name: "Apply Worker",
+    path: "/apply-worker",
+    icon: "fa fa-thin fa-user-worker"
   },
   {
     name: "Profile",
     path: "/profile",
-    icon: "fa fa-thin fa-user",
-  },
+    icon: "fa fa-thin fa-user"
+  }
   //   {
   //     name: "Logout",
   //     path: "/logout",
@@ -30,22 +30,22 @@ export const adminMenu = [
   {
     name: "Home",
     path: "/",
-    icon: "fa fa-thin fa-house",
+    icon: "fa fa-thin fa-house"
   },
 
   {
-    name: "Doctors",
-    path: "/admin/doctors",
-    icon: "fa fa-thin fa-user-doctor",
+    name: "Workers",
+    path: "/admin/workers",
+    icon: "fa fa-thin fa-user-worker"
   },
   {
     name: "Profile",
     path: "/profile",
-    icon: "fa fa-thin fa-user",
+    icon: "fa fa-thin fa-user"
   },
   {
     name: "Users",
     path: "/admin/users",
-    icon: "fa fa-thin fa-user",
-  },
+    icon: "fa fa-thin fa-user"
+  }
 ];

@@ -1,30 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const DoctorList = ({ doctor }) => {
+const WorkerList = ({ worker }) => {
   const navigate = useNavigate();
   return (
     <>
       <div
         className="card m-2"
         style={{ cursor: "pointer" }}
-        onClick={() => navigate(`/doctor/book-appointment/${doctor._id}`)}
+        onClick={() => navigate(`/worker/book-appointment/${worker._id}`)}
       >
         <div className="card-header">
-          Dr. {doctor.firstName} {doctor.lastName}
+          Dr. {worker.firstName} {worker.lastName}
         </div>
         <div className="card-body">
           <p>
-            <b>Specialization</b> {doctor.specialization}
+            <b>Specialization</b> {worker.specialization}
           </p>
           <p>
-            <b>Experience</b> {doctor.experience}
+            <b>Experience</b> {worker.experience}
           </p>
           <p>
-            <b>Fees Per Cunsaltation</b> {doctor.feesPerCunsaltation}
+            <b>Fees Per Cunsaltation</b> {worker.feesPerCunsaltation}
           </p>
           <p>
-            <b>Timings</b> {doctor.timings[0]} - {doctor.timings[1]}
+            <b>Timings</b> {worker.timings[0]} - {worker.timings[1]}
           </p>
         </div>
       </div>
@@ -32,4 +32,4 @@ const DoctorList = ({ doctor }) => {
   );
 };
 
-export default DoctorList;
+export default WorkerList;
