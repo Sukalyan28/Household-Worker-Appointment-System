@@ -102,7 +102,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your clinic address" />
+              <Input type="text" placeholder="your address" />
             </Form.Item>
           </Col>
         </Row>
