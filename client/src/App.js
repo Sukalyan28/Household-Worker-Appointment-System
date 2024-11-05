@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import HomePage from "./pages/Homepage";
+import Homepage from "./pages/Homepage";
 import Spinner from "./components/Spinner";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./components/ProtectedRoutes";
@@ -111,7 +111,7 @@ function App() {
               path="/"
               element={
                 <ProtectedRoutes>
-                  <HomePage />
+                  <Homepage />
                 </ProtectedRoutes>
               }
             />

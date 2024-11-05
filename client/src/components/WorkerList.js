@@ -11,7 +11,7 @@ const WorkerList = ({ worker }) => {
         onClick={() => navigate(`/worker/book-appointment/${worker._id}`)}
       >
         <div className="card-header">
-          Dr. {worker.firstName} {worker.lastName}
+          Mr. {worker.firstName} {worker.lastName}
         </div>
         <div className="card-body">
           <p>
