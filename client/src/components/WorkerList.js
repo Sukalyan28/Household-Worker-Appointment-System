@@ -21,7 +21,7 @@ const WorkerList = ({ worker }) => {
             <b>Experience</b> {worker.experience}
           </p>
           <p>
-            <b>Fees Per Cunsaltation</b> {worker.fees}
+            <b>Fees Per Consaltation</b> {worker.feesPerCunsaltation}
           </p>
           <p>
             <b>Timings</b> {worker.timings[0]} - {worker.timings[1]}
