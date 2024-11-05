@@ -11,7 +11,7 @@ const WorkerList = ({ worker }) => {
         onClick={() => navigate(`/worker/book-appointment/${worker._id}`)}
       >
         <div className="card-header">
-          Dr. {worker.firstName} {worker.lastName}
+          Mr. {worker.firstName} {worker.lastName}
         </div>
         <div className="card-body">
           <p>
@@ -21,7 +21,7 @@ const WorkerList = ({ worker }) => {
             <b>Experience</b> {worker.experience}
           </p>
           <p>
-            <b>Fees Per Cunsaltation</b> {worker.feesPerCunsaltation}
+            <b>Fees Per Cunsaltation</b> {worker.fees}
           </p>
           <p>
             <b>Timings</b> {worker.timings[0]} - {worker.timings[1]}

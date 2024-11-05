@@ -39,11 +39,11 @@ const workerSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "pending"
+      default: "approved"
     },
     timings: {
       type: Object,
-      required: [true, "work timing is required"]
+      required: [false, "work timing is required"]
     }
   },
   { timestamps: true }

@@ -3,8 +3,8 @@ import axios from "axios";
 import Layout from "./../components/Layout";
 import { Row } from "antd";
 import WorkerList from "../components/WorkerList";
-const HomePage = () => {
-  const [workers, SetWorkers] = useState([]);
+const Homepage = () => {
+  const [workers, setWorkers] = useState([]);
   // login user data
   const getUserData = async () => {
     try {
@@ -14,7 +14,7 @@ const HomePage = () => {
         }
       });
       if (res.data.success) {
-        SetWorkers(res.data.data);
+        setWorkers(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -34,4 +34,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Homepage;
