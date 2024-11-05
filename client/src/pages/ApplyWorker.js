@@ -90,11 +90,11 @@ const ApplyWorker = () => {
               <Input type="email" placeholder="your email address" />
             </Form.Item>
           </Col>
-          <Col xs={24} md={24} lg={8}>
+          {/* <Col xs={24} md={24} lg={8}>
             <Form.Item label="Website" name="website">
               <Input type="text" placeholder="your website" />
             </Form.Item>
-          </Col>
+          </Col> */}
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Address"
