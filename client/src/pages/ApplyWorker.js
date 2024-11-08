@@ -14,9 +14,10 @@ const ApplyWorker = () => {
   //handle form
   const handleFinish = async values => {
     try {
+      console.log(values)
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/apply-worker",
+        "http://localhost:8080/api/v1/user/apply-worker",
         {
           ...values,
           userId: user._id,
@@ -111,7 +112,7 @@ const ApplyWorker = () => {
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Specialization"
-              name="specialization"
+              name="speciality"
               required
               rules={[{ required: true }]}
             >
@@ -131,7 +132,7 @@ const ApplyWorker = () => {
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Fees Per Cunsaltation"
-              name="feesPerCunsaltation"
+              name="fees"
               required
               rules={[{ required: true }]}
             >
