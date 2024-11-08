@@ -9,7 +9,7 @@ const Workers = () => {
   //getUsers
   const getWorkers = async () => {
     try {
-      const res = await axios.get("/api/v1/admin/getAllWorkers", {
+      const res = await axios.get("http://localhost:8080/api/v1/admin/getAllWorkers", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -25,7 +25,7 @@ const Workers = () => {
   const handleAccountStatus = async (record, status) => {
     try {
       const res = await axios.post(
-        "/api/v1/admin/changeAccountStatus",
+        "http://localhost:8080/api/v1/admin/changeAccountStatus",
         { workerId: record._id, userId: record.userId, status: status },
         {
           headers: {
@@ -74,7 +74,9 @@ const Workers = () => {
               >
                 Approve
               </button>
-            : <button className="btn btn-danger">Reject</button>}
+            : <button className="btn btn-danger"
+            onClick={() => handleAccountStatus(record, "rejected")}
+            >Reject</button>}
         </div>
     }
   ];

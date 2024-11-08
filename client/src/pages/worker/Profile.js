@@ -19,7 +19,7 @@ const Profile = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/worker/updateProfile",
+        "http://localhost:8080/api/v1/worker/updateProfile",
         {
           ...values,
           userId: user._id,
@@ -53,7 +53,7 @@ const Profile = () => {
   const getWorkerInfo = async () => {
     try {
       const res = await axios.post(
-        "/api/v1/worker/getWorkerInfo",
+        "http://localhost:8080/api/v1/worker/getWorkerInfo",
         { userId: params.id },
         {
           headers: {

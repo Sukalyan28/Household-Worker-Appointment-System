@@ -11,15 +11,15 @@ const BookingPage = () => {
   const { user } = useSelector(state => state.user);
   const params = useParams();
   const [workers, SetWorkers] = useState([]);
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [isAvailable, setIsAvailable] = useState();
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
+  const [isAvailable, setIsAvailable] = useState(false);
   const dispatch = useDispatch();
   // login user data
   const getUserData = async () => {
     try {
       const res = await axios.post(
-        "/api/v1/worker/getWorkerById",
+        "http://localhost:8080/api/v1/worker/getWorkerById",
         { workerId: params.workerId },
         {
           headers: {
@@ -38,9 +38,13 @@ const BookingPage = () => {
   // ============ handle availiblity
   const handleAvailability = async () => {
     try {
+      if (!date && !time) {
+        return alert("Date and Time Required");
+      }
+      console.log("Checking availability", { date, time });
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/booking-availbility",
+        "http://localhost:8080/api/v1/user/booking-availbility",
         { workerId: params.workerId, date, time },
         {
           headers: {
@@ -70,7 +74,7 @@ const BookingPage = () => {
       }
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/book-appointment",
+        "http://localhost:8080/api/v1/user/book-appointment",
         {
           workerId: params.workerId,
           userId: user._id,
@@ -106,23 +110,25 @@ const BookingPage = () => {
         {workers &&
           <div>
             <h4>
-              Dr.{workers.firstName} {workers.lastName}
+              Mr.{workers.firstName} {workers.lastName}
             </h4>
             <h4>
-              Fees : {workers.feesPerCunsaltation}
+              Fees : {workers.fees}
             </h4>
             <h4>
               Timings : {workers.timings && workers.timings[0]} -{" "}
               {workers.timings && workers.timings[1]}{" "}
             </h4>
             <div className="d-flex flex-column w-50">
-              <DatePicker
-                className="m-2"
-                format="DD-MM-YYYY"
-                onChange={value => {
-                  setDate(moment(value).format("DD-MM-YYYY"));
-                }}
-              />
+            <DatePicker
+              className="m-2"
+              format="DD-MM-YYYY"
+              value={date ? moment(date, "DD-MM-YYYY") : null}
+              onChange={value => {
+                console.log("DatePicker onChange", value);
+              setDate(value ? moment(value).format("DD-MM-YYYY") : null);
+              }}
+             />
               <TimePicker
                 format="HH:mm"
                 className="m-2"

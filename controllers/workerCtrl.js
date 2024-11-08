@@ -84,13 +84,18 @@ const workerAppointmentsController = async (req, res) => {
 //updateStatusController
 const updateStatusController = async (req, res) => {
   try {
-    const { bookingId, status } = req.body;
-    const bookings = await bookingModel.findByIdAndUpdate(bookingId, {
-      status
+   
+    const { appointmentsId, status } = req.body;
+   
+    const bookings = await bookingModel.findByIdAndUpdate(appointmentsId, {
+      status:status
     });
+    console.log(bookings)
     const user = await userModel.findOne({ _id: bookings.userId });
-    const notifcation = user.notifcation;
-    notifcation.push({
+    console.log("hi");
+    const notification = user.notification;
+    console.log("hi");
+    notification.push({
       type: "status-updated",
       message: `your appointment has been updated ${status}`,
       onCLickPath: "/worker-bookings"

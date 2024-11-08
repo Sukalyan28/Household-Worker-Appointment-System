@@ -9,7 +9,7 @@ const Appointments = () => {
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("/api/v1/user/user-appointments", {
+      const res = await axios.get("http://localhost:8080/api/v1/user/user-appointments", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -63,7 +63,7 @@ const Appointments = () => {
 
   return (
     <Layout>
-      <h1>Appoinmtnets Lists</h1>
+      <h1>Appointment Lists</h1>
       <Table columns={columns} dataSource={appointments} />
     </Layout>
   );

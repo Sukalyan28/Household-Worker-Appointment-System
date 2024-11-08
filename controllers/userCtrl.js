@@ -104,7 +104,7 @@ const applyWorkerController = async (req, res) => {
     res.status(500).send({
       success: false,
       error,
-      message: "Error while Applying for Worker"
+      message: "Error while Applying for Worker" + error.message
     });
   }
 };
@@ -179,13 +179,15 @@ const getAllWorkerController = async (req, res) => {
 
 const bookAppointmnetController = async (req, res) => {
   try {
+    console.log(req)
     req.body.date = moment(req.body.date, "DD-MM-YYYY").toISOString();
     req.body.time = moment(req.body.time, "HH:mm").toISOString();
     req.body.status = "pending";
     const newAppointment = new bookingModel(req.body);
     await newAppointment.save();
-    const user = await userModel.findOne({ _id: req.body.workerInfo.userId });
-    user.notification.push({
+    const user = await userModel.findById(req.body.userId);
+    console.log("user in bookAppointmentController",user)
+    user?.notification.push({
       type: "New-appointment-request",
       message: `A nEw Appointment Request from ${req.body.userInfo.name}`,
       onCLickPath: "/user/bookings"
@@ -200,7 +202,7 @@ const bookAppointmnetController = async (req, res) => {
     res.status(500).send({
       success: false,
       error,
-      message: "Error While Booking Appointment"
+      message: "Error While Booking Appointment" + error.message
     });
   }
 };

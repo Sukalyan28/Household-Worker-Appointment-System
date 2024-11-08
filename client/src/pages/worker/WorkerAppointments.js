@@ -11,7 +11,7 @@ const WorkerAppointments = () => {
 
   const getAppointments = async () => {
     try {
-      const res = await axios.get("/api/v1/worker//worker-appointments", {
+      const res = await axios.get("http://localhost:8080/api/v1/worker/worker-appointments", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
@@ -31,7 +31,7 @@ const WorkerAppointments = () => {
   const handleStatus = async (record, status) => {
     try {
       const res = await axios.post(
-        "/api/v1/worker/update-status",
+        "http://localhost:8080/api/v1/worker/update-status",
         { appointmentsId: record._id, status },
         {
           headers: {
@@ -92,7 +92,7 @@ const WorkerAppointments = () => {
   ];
   return (
     <Layout>
-      <h1>Appoinmtnets Lists</h1>
+      <h1>Appointment List</h1>
       <Table columns={columns} dataSource={appointments} />
     </Layout>
   );
