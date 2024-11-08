@@ -81,8 +81,8 @@ const authController = async (req, res) => {
 };
 const applyWorkerController = async (req, res) => {
   try {
-    const newWorker = await workerModel({ ...req.body, status: "pending" });
-    await newWorker.save();
+    const newWorker = await workerModel.create({ ...req.body, status: "pending" });
+   
     const adminUser = await userModel.findOne({ isAdmin: true });
     const notification = adminUser.notification;
     notification.push({
