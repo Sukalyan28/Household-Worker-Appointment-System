@@ -148,8 +148,26 @@ const Profile = () => {
           </Row>
           <h4>Professional Details :</h4>
           <Row gutter={20}>
-          
-            
+            <Col xs={24} md={24} lg={8}>
+              <Form.Item
+                label="Specialization"
+                name="specialization"
+                required
+                rules={[{ required: true }]}
+              >
+                <Input type="text" placeholder="your specialization" />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={24} lg={8}>
+              <Form.Item
+                label="Experience"
+                name="experience"
+                required
+                rules={[{ required: true }]}
+              >
+                <Input type="text" placeholder="your experience" />
+              </Form.Item>
+            </Col>
             <Col xs={24} md={24} lg={8}>
               <Form.Item
                 label="Fees"
