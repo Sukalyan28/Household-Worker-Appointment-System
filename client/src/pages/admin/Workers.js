@@ -6,6 +6,7 @@ import { message } from "antd";
 
 const Workers = () => {
   const [workers, setWorkers] = useState([]);
+  const [showButton,setShowButton] = useState(true);
   //getUsers
   const getWorkers = async () => {
     try {
@@ -36,6 +37,7 @@ const Workers = () => {
       if (res.data.success) {
         message.success(res.data.message);
         window.location.reload();
+        setShowButton(false);
       }
     } catch (error) {
       message.error("Something Went Wrong");
@@ -68,13 +70,16 @@ const Workers = () => {
       render: (text, record) =>
         <div className="d-flex">
           {record.status === "pending"
-            ? <button
-                className="btn btn-success"
-                onClick={() => handleAccountStatus(record, "approved")}
-              >
-                Approve
-              </button>
-            : <button className="btn btn-danger"
+            ? <div><button
+            className="btn btn-success"
+            onClick={() => handleAccountStatus(record, "approved")}
+          >
+            Approve
+          </button> 
+          <button className="btn btn-danger" 
+            onClick={() => handleAccountStatus(record, "rejected")}
+            >Reject</button></div> 
+            : <button className="btn btn-danger" 
             onClick={() => handleAccountStatus(record, "rejected")}
             >Reject</button>}
         </div>
