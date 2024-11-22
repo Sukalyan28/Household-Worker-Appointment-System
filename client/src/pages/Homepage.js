@@ -8,12 +8,15 @@ const Homepage = () => {
   // login user data
   const getUserData = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/api/v1/user/getAllWorkers", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
+      const res = await axios.get(
+        "http://localhost:8080/api/v1/user/getAllWorkers",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
         }
-      });
-      console.log(res)
+      );
+      console.log(res);
       if (res.data.success) {
         setWorkers(res.data.data);
       }

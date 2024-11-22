@@ -1,90 +1,204 @@
-.main{
-    padding:10px;
-    height:100vh;
-   
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    color: #333;
+}
 
+.main {
+    padding: 20px;
+    height: 100vh;
+    background-color: #f4f6f9;
 }
-.layout{
+
+.layout {
     display: flex;
+    gap: 20px;
 }
-.sidebar{
-    min-height:100%;
-    width: 300px;
-    border-radius: 5px;
-    background-color: maroon;
-    box-shadow:  0 0 2px gray;
-    margin-right: 20px;
+
+/* Sidebar */
+.sidebar {
+    min-height: 100%;
+    width: 280px;
+    border-radius: 10px;
+    background-color: #784ce6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     color: white;
 }
-.content{
-    width: 100%;
-    height: 100%;
 
-}
-
-.header{
-    height: 10vh;
-    margin-bottom: 20px;
-    box-shadow: 0 0 2px gray;
-    background-color: white;
-}
-
-.body{
-    height: 85vh;
-    margin-bottom: 20px;
-    box-shadow: 0 0 2px gray;
-    background-color: white;
-
-}
-.logo h6{
-    font-size: 1.5rem;
+.logo h6 {
+    font-size: 1.8rem;
     text-align: center;
-    margin:20px 0px;
-
-
+    margin: 20px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-.menu{
-    margin-top: 50px;
-}
-.menu-item a{
-    margin-top:30px;
 
+.menu {
+    margin-top: 40px;
 }
-.menu-item a{
+
+.menu-item {
+    margin: 20px 0;
+}
+
+.menu-item a {
     color: white;
     text-decoration: none;
-    font-size:1.2rem;
-}
-.menu-item i{
-    font: size 1.2rem; 
-    margin: 0 15px;
-}
-
-.active{
-    background-color: white;
-    color:maroon;}
-  
-.active a,.active i{
-    color: maroon;
-    
-}
-
-.header-content{
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-item a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-item i {
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+.active {
+    background-color: white;
+    color: #784ce6;
+}
+
+.active a,
+.active i {
+    color: #784ce6;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Header */
+.header {
+    height: 10vh;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     height: 50px;
 }
 
-.header-content i{
-    margin-right :6px;
-    font-size: 1.2rem;
+.header-content i {
+    font-size: 1.5rem;
+    color: #784ce6;
+    transition: color 0.3s;
 }
-.header-content a{
+
+.header-content a {
     text-decoration: none;
-    font-size: 1.2rem;
-    color: darkblue;
-    margin: 0 17px;
+    font-size: 1.1rem;
+    color: #333;
     text-transform: uppercase;
+    transition: color 0.3s;
 }
+
+.header-content a:hover {
+    color: #784ce6;
+}
+
+/* Body */
+.body {
+    height: calc(100vh - 20vh);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+    overflow-y: auto;
+}
+
+/* Transitions for smoother interaction */
+.sidebar,
+.header,
+.body,
+.menu-item a {
+    transition: all 0.3s ease;
+}
+/* Homepage Styling */
+.text-center {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .worker-list-container {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .worker-card {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .worker-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .worker-card h3 {
+    font-size: 1.5rem;
+    color: #784ce6;
+    margin: 10px 0;
+  }
+  
+  .worker-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .worker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Loader Styling */
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  .loader span {
+    font-size: 1.5rem;
+    color: #784ce6;
+  }
+  
