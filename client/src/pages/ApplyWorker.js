@@ -14,7 +14,7 @@ const ApplyWorker = () => {
   //handle form
   const handleFinish = async values => {
     try {
-      console.log(values)
+      console.log(values);
       dispatch(showLoading());
       const res = await axios.post(
         "http://localhost:8080/api/v1/user/apply-worker",
@@ -23,7 +23,7 @@ const ApplyWorker = () => {
           userId: user._id,
           timings: [
             moment(values.timings[0]).format("HH:mm"),
-            moment(values.timings[1]).format("HH;mm")
+            moment(values.timings[1]).format("HH:mm")
           ]
         },
         {
