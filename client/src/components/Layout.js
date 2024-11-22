@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
         <div className="layout">
           <div className="sidebar">
             <div className="logo">
-              <h6>Houseworker apppointer</h6>
+              <h6>HomeEase</h6>
               <hr />
             </div>
             <div className="menu">
@@ -80,6 +80,7 @@ const Layout = ({ children }) => {
               <div className="header-content" style={{ cursor: "pointer" }}>
                 <Badge
                   count={user && user.notification.length}
+                  className=" mybadge"
                   onClick={() => {
                     navigate("/notification");
                   }}

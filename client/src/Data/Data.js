@@ -36,7 +36,7 @@ export const adminMenu = [
   {
     name: "Workers",
     path: "/admin/workers",
-    icon: "fa fa-thin fa-user-worker"
+    icon: "fa fa-thin fa-user"
   },
   {
     name: "Profile",
