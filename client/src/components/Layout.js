@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
       path: `/worker/profile/${user?._id}`,
       icon: "fa fa-thin fa-user",
     },
+    
     //   {
     //     name: "Logout",
     //     path: "/logout",

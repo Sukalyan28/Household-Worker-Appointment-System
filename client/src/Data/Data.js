@@ -12,7 +12,7 @@ export const userMenu = [
   {
     name: "Apply Worker",
     path: "/apply-worker",
-    icon: "fa fa-thin fa-user-worker"
+    icon: "fa fa-thin fa-user"
   },
   {
     name: "Profile",
