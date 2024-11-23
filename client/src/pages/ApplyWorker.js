@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import axios from "axios";
 import moment from "moment";
+import "../styles/LayoutStyles.css";
 const ApplyWorker = () => {
   const { user } = useSelector(state => state.user);
 
@@ -146,7 +147,7 @@ const ApplyWorker = () => {
           </Col>
           <Col xs={24} md={24} lg={8} />
           <Col xs={24} md={24} lg={8}>
-            <button className="btn btn-primary form-btn" type="submit">
+            <button className="btn btn-primary form-btn submitbtn" type="submit">
               Submit
             </button>
           </Col>

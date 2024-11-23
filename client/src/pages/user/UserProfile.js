@@ -7,9 +7,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../../redux/features/alertSlice";
 import moment from "moment";
 
-const Profile = () => {
+const UserProfile = () => {
   const { user } = useSelector(state => state.user);
-  const [worker, setWorker] = useState(null);
+  const [userData, setUserData] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const params = useParams();
@@ -19,14 +19,11 @@ const Profile = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "http://localhost:8080/api/v1/worker/updateProfile",
+        "http://localhost:8080/api/v1/user/userProfile",
         {
           ...values,
           userId: user._id,
-          timings: [
-            moment(values.timings[0]).format("HH:mm"),
-            moment(values.timings[1]).format("HH:mm")
-          ]
+         
         },
         {
           headers: {
@@ -49,10 +46,10 @@ const Profile = () => {
   };
 
 
-  const getWorkerInfo = async () => {
+  const getUserInfo = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/v1/worker/getWorkerInfo",
+        "http://localhost:8080/api/v1/user/getUserProfile",
         { userId: params.id },
         {
           headers: {
@@ -61,7 +58,8 @@ const Profile = () => {
         }
       );
       if (res.data.success) {
-        setWorker(res.data.data);
+        console.log(res);
+        setUserData(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -69,22 +67,19 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    getWorkerInfo();
+    getUserInfo();
    
   }, []);
   return (
     <Layout>
       <h1>Manage Profile</h1>
-      {worker &&
+      {userData &&
         <Form
           layout="vertical"
           className="m-3"
           initialValues={{
-            ...worker,
-            timings: [
-              moment(worker.timings[0], "HH:mm"),
-              moment(worker.timings[1], "HH:mm")
-            ]
+            ...userData,
+            
           }}
           onFinish={handleFinish}
         >
@@ -92,24 +87,15 @@ const Profile = () => {
           <Row gutter={20}>
             <Col xs={24} md={24} lg={8}>
               <Form.Item
-                label="First Name"
-                name="firstName"
+                label="Name"
+                name="name"
                 required
                 rules={[{ required: true }]}
               >
                 <Input type="text" placeholder="your first name" />
               </Form.Item>
             </Col>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item
-                label="Last Name"
-                name="lastName"
-                required
-                rules={[{ required: true }]}
-              >
-                <Input type="text" placeholder="your last name" />
-              </Form.Item>
-            </Col>
+          
             <Col xs={24} md={24} lg={8}>
               <Form.Item
                 label="Phone No"
@@ -130,11 +116,7 @@ const Profile = () => {
                 <Input type="email" placeholder="your email address" />
               </Form.Item>
             </Col>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item label="Website" name="website">
-                <Input type="text" placeholder="your website" />
-              </Form.Item>
-            </Col>
+           
             <Col xs={24} md={24} lg={8}>
               <Form.Item
                 label="Address"
@@ -145,74 +127,19 @@ const Profile = () => {
                 <Input type="text" placeholder="your house address" />
               </Form.Item>
             </Col>
+            
           </Row>
-          <h4>Professional Details :</h4>
-          <Row gutter={20}>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item
-                label="Specialization"
-                name="specialization"
-                required
-                rules={[{ required: true }]}
-              >
-                <Input type="text" placeholder="your specialization" />
-              </Form.Item>
-            </Col>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item
-                label="Experience"
-                name="experience"
-                required
-                rules={[{ required: true }]}
-              >
-                <Input type="text" placeholder="your experience" />
-              </Form.Item>
-            </Col>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item
-                label="Fees"
-                name="fees"
-                required
-                rules={[{ required: true }]}
-              >
-                <Input type="text" placeholder="your contact no" />
-              </Form.Item>
-            </Col>
-            <Col xs={24} md={24} lg={8}>
-              <Form.Item
-                label="Timings"
-                name="timings"
-                required
-                rules={[{ required: true }]}
-              >
-                <TimePicker.RangePicker
-                  format="HH:mm"
-                  defaultValue={[
-                    moment(worker.timings[0], "HH:mm"),
-                    moment(worker.timings[1], "HH:mm")
-                  ]}
-                  onChange={value => {
-                    setWorker(prevWorker => ({
-                      ...prevWorker,
-                      timings: [
-                        value[0].format("HH:mm"),
-                        value[1].format("HH:mm")
-                      ]
-                    }));
-                  }}
-                />
-              </Form.Item>
-            </Col>
-            <Col xs={24} md={24} lg={8} />
-            <Col xs={24} md={24} lg={8}>
+          <Row>
+          <Col xs={24} md={24} lg={8}>
               <button className="btn btn-primary form-btn" type="submit">
                 Update
               </button>
             </Col>
           </Row>
+    
         </Form>}
     </Layout>
   );
 };
 
-export default Profile;
+export default UserProfile;

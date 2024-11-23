@@ -185,7 +185,7 @@ const Profile = () => {
                 />
               </Form.Item>
             </Col>
-            <Col xs={24} md={24} lg={8} />
+           
             <Col xs={24} md={24} lg={8}>
               <button className="btn btn-primary form-btn" type="submit">
                 Update

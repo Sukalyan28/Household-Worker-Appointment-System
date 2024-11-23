@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/LayoutStyles.css";
-import { adminMenu, userMenu } from "./../Data/Data";
+import { adminMenu } from "./../Data/Data";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -36,6 +36,34 @@ const Layout = ({ children }) => {
       icon: "fa fa-thin fa-user",
     },
     
+    //   {
+    //     name: "Logout",
+    //     path: "/logout",
+    //     icon: "fa fa-thin fa-right-from-bracket",
+    //   },
+  ];
+
+  const userMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "fa fa-thin fa-house"
+    },
+    {
+      name: "Appointments",
+      path: "/appointments",
+      icon: "fa fa-thin fa-list"
+    },
+    {
+      name: "Apply Worker",
+      path: "/apply-worker",
+      icon: "fa fa-thin fa-user"
+    },
+    {
+      name: "Profile",
+      path: `/user/profile/${user?._id}`,
+      icon: "fa fa-thin fa-user"
+    }
     //   {
     //     name: "Logout",
     //     path: "/logout",
@@ -88,7 +116,12 @@ const Layout = ({ children }) => {
                 >
                   <i class="fa-solid fa-bell"></i>
                 </Badge>
-                <Link to="/profile">{user?.name}</Link>
+                {
+                  user?.isWorker && <Link to={`/worker/profile/${user?._id}`}>{user?.name}</Link>
+                }
+                {
+                  !(user?.isWorker) && <Link to={`/user/profile/${user?._id}`}>{user?.name}</Link>
+                }
               </div>
             </div>
             <div className="body">{children}</div>

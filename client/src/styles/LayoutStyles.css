@@ -44,7 +44,7 @@ body {
 .menu-item {
     margin: 20px 0;
     display: flex;
-    
+    padding: 0px 10px;
     align-items: center;
 }
 
@@ -58,6 +58,7 @@ body {
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
     text-align: center;
+   
 }
 
 .menu-item:hover {
@@ -95,6 +96,7 @@ body {
     border-radius: 8px;
     background-color: white;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
 }
@@ -204,5 +206,9 @@ body {
   .loader span {
     font-size: 1.5rem;
     color: #784ce6;
+  }
+  .submitbtn{
+    margin: auto;
+    
   }
   

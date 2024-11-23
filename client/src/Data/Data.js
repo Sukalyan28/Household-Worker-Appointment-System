@@ -1,30 +1,3 @@
-export const userMenu = [
-  {
-    name: "Home",
-    path: "/",
-    icon: "fa fa-thin fa-house"
-  },
-  {
-    name: "Appointments",
-    path: "/appointments",
-    icon: "fa fa-thin fa-list"
-  },
-  {
-    name: "Apply Worker",
-    path: "/apply-worker",
-    icon: "fa fa-thin fa-user"
-  },
-  {
-    name: "Profile",
-    path: "/profile",
-    icon: "fa fa-thin fa-user"
-  }
-  //   {
-  //     name: "Logout",
-  //     path: "/logout",
-  //     icon: "fa fa-thin fa-right-from-bracket",
-  //   },
-];
 
 export const adminMenu = [
   {

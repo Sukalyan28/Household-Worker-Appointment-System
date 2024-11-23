@@ -266,6 +266,44 @@ const userAppointmentsController = async (req, res) => {
   }
 };
 
+const updateUserProfileController = async (req, res) => {
+  try {
+    const user = await userModel.findByIdAndUpdate(
+      req.body.userId,
+      req.body
+    );
+    res.status(201).send({
+      success: true,
+      message: "user Profile Updated",
+      data: user
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "User Profile Update issue",
+      error
+    });
+  }
+};
+const getUserInfoController = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.body.userId );
+    res.status(200).send({
+      success: true,
+      message: "User data fetch success",
+      data: user
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in Fetching user Details"
+    });
+  }
+};
+
 module.exports = {
   loginController,
   registerController,
@@ -276,5 +314,8 @@ module.exports = {
   getAllWorkerController,
   bookAppointmnetController,
   bookingAvailabilityController,
-  userAppointmentsController
+  userAppointmentsController,
+  updateUserProfileController,
+  getUserInfoController
+
 };

@@ -14,6 +14,7 @@ import NotificationPage from "./pages/NotificationPage";
 import BookingPage from "./pages/BookingPage";
 import Appointments from "./pages/Appointments";
 import WorkerAppointments from "./pages/worker/WorkerAppointments";
+import UserProfile from "./pages/user/UserProfile";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
 
@@ -57,6 +58,17 @@ function App() {
                 </ProtectedRoutes>
               }
             />
+
+            <Route
+              path="/user/profile/:id"
+              element={
+                <ProtectedRoutes>
+                 <UserProfile/>
+                </ProtectedRoutes>
+              }
+            /> 
+
+
             <Route
               path="/worker/book-appointment/:workerId"
               element={
@@ -115,6 +127,7 @@ function App() {
                 </ProtectedRoutes>
               }
             />
+
           </Routes>
         )}
       </BrowserRouter>
