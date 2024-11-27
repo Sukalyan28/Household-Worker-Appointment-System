@@ -13,14 +13,13 @@ const userSchema = new mongoose.Schema({
     required: [true, "password is required"]
   },
   phone: {
-    type: String,
-
+    type: String
   },
   address: {
     type: String,
+    default: null
    
   },
-  
 
   isAdmin: {
     type: Boolean,
