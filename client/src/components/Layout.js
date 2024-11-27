@@ -83,7 +83,7 @@ const Layout = ({ children }) => {
         <div className="layout">
           <div className="sidebar">
             <div className="logo">
-              <h6>ServEase</h6>
+              <h6>Serv2Ease</h6>
               <hr />
             </div>
             <div className="menu">

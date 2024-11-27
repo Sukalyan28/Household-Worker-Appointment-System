@@ -28,8 +28,7 @@ router.post("/register", registerController);
 //Auth||POST
 router.post("/getUserData", authMiddleware, authController);
 module.exports = router;
-
-//APply Worker || POST
+//Apply Worker || POST
 router.post("/apply-worker", authMiddleware, applyWorkerController);
 module.exports = router;
 
@@ -39,7 +38,6 @@ router.post(
   authMiddleware,
   getAllNotificationController
 );
-
 //Notifiaction  Doctor || POST
 router.post(
   "/delete-all-notification",
@@ -58,9 +56,8 @@ router.post(
   authMiddleware,
   bookingAvailabilityController
 );
-
 //Appointments List
 router.get("/user-appointments", authMiddleware, userAppointmentsController);
-router.post("/userProfile",authMiddleware,updateUserProfileController);
-router.post("/getUserProfile",authMiddleware,getUserInfoController);
+router.post("/userProfile", authMiddleware, updateUserProfileController);
+router.post("/getUserProfile", authMiddleware, getUserInfoController);
 module.exports = router;
