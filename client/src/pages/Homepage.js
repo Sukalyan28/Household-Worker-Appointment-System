@@ -31,6 +31,7 @@ const Homepage = () => {
   return (
     <Layout>
       <h1 className="text-center">Home Page</h1>
+      <h2>What are you looking for?</h2>
       <Row>
         {workers && workers.map(worker => <WorkerList worker={worker} />)}
       </Row>

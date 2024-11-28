@@ -46,6 +46,7 @@ body {
     display: flex;
     padding: 0px 10px;
     align-items: center;
+    border-radius: 5px;
 }
 
 .menu-item a {
@@ -63,13 +64,17 @@ body {
 
 .menu-item:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
 }
 
 .menu-item i {
     font-size: 1.2rem;
     margin-right: 15px;
 }
-
+.menu-item.active:hover {
+    background-color: white; /* Reset hover background */
+    color: #784ce6;            /* Reset hover color */
+  }
 .active {
     background-color: white;
     color: #784ce6;
