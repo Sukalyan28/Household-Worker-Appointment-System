@@ -72,7 +72,7 @@ const UserProfile = () => {
   }, []);
   return (
     <Layout>
-      <h1>Manage Profile</h1>
+      <h1 className=" font-semibold text-2xl py-3 px-2">Manage Profile</h1>
       {userData &&
         <Form
           layout="vertical"
@@ -83,7 +83,7 @@ const UserProfile = () => {
           }}
           onFinish={handleFinish}
         >
-          <h4 className="">Personal Details : </h4>
+          <h4 className=" font-semibold text-lg">Personal Details : </h4>
           <Row gutter={20}>
             <Col xs={24} md={24} lg={8}>
               <Form.Item
@@ -92,7 +92,7 @@ const UserProfile = () => {
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="text" placeholder="your first name" />
+                <Input type="text" placeholder="Enter Your Name" />
               </Form.Item>
             </Col>
           
@@ -103,7 +103,7 @@ const UserProfile = () => {
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="text" placeholder="your contact no" />
+                <Input type="text" placeholder="Enter Your Contact No." />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>
@@ -113,7 +113,7 @@ const UserProfile = () => {
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="email" placeholder="your email address" />
+                <Input type="email" placeholder="Enter Your Email Id" />
               </Form.Item>
             </Col>
            
@@ -124,7 +124,7 @@ const UserProfile = () => {
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="text" placeholder="your house address" />
+                <Input type="text" placeholder="Enter your address" />
               </Form.Item>
             </Col>
             

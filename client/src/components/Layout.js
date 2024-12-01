@@ -79,11 +79,11 @@ const Layout = ({ children }) => {
     : userMenu;
   return (
     <>
-      <div className="main">
-        <div className="layout">
+      
+        <div className=" w-full h-[100vh] px-3 py-4 flex gap-4" >
           <div className="sidebar">
             <div className="logo">
-              <h6>Serv2Ease</h6>
+              <h6>Menu</h6>
               <hr />
             </div>
             <div className="menu">
@@ -104,30 +104,47 @@ const Layout = ({ children }) => {
               </div>
             </div>
           </div>
-          <div className="content">
-            <div className="header">
-              <div className="header-content" style={{ cursor: "pointer" }}>
-                <Badge
-                  count={user && user.notification.length}
-                  className=" mybadge"
-                  onClick={() => {
+        
+           
+            <div className=" w-[80%] py-4  rounded-lg shadow-md bg-[#fff4c9]">
+            <div className=" flex justify-between px-4 items-center border-b border-gray-300 pb-3">
+            <h1 className=" text-center font-bold text-4xl font-inter">Serve2Ease</h1>
+            <div className=" text-right">
+            <i class="fa-solid fa-bell text-black text-xl cursor-pointer mr-4 relative" onClick={() => {
                     navigate("/notification");
-                  }}
-                >
-                  <i class="fa-solid fa-bell"></i>
-                </Badge>
+                  }}>
+
+                <span
+                 className={` absolute -top-3 left-2 px-[8px] py-[2px] rounded-full text-sm bg-red-5 text-white ${user && user.notification.length>0?"":" hidden"}`}
+               >
+                  {user && user.notification.length>0 && user.notification.length}
+               </span>
+                  </i>
+             
+                 
+               
+                
                 {
-                  user?.isWorker && <Link to={`/worker/profile/${user?._id}`}>{user?.name}</Link>
+                  user?.isWorker && <Link to={`/worker/profile/${user?._id}`} className=" text-xl"><i className="fa fa-thin fa-user"></i></Link>
                 }
                 {
-                  !(user?.isWorker) && <Link to={`/user/profile/${user?._id}`}>{user?.name}</Link>
+                  !(user?.isWorker) && <Link to={`/user/profile/${user?._id}`} className=" text-xl bg-sky-500 px-2 py-1 border-1 text-white border-sky-600 rounded-full">{user?.name[0]}</Link>
                 }
               </div>
-            </div>
-            <div className="body">{children}</div>
-          </div>
+              </div>
+              
+            
+
+          
+              
+              <div> <p className=" text-3xl font-semibold text-center mt-3">Welcome {user?.name}</p>
+               
+              </div>
+              <div className=" px-4">{children}</div>
+              </div>
+          
         </div>
-      </div>
+     
     </>
   );
 };

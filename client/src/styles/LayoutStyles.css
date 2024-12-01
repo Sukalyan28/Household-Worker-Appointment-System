@@ -23,7 +23,8 @@ body {
     min-height: 100%;
     width: 280px;
     border-radius: 10px;
-    background-color: #784ce6;
+    /* background-color: #784ce6; */
+    background: linear-gradient(180deg, #784ce6, rgb(120, 76, 230,0.6)); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     color: white;
@@ -111,6 +112,8 @@ body {
     align-items: center;
     gap: 20px;
     height: 50px;
+    margin-left: auto;
+    text-align: center;
 }
 
 .header-content i {
@@ -149,14 +152,14 @@ body {
     transition: all 0.3s ease;
 }
 /* Homepage Styling */
-.text-center {
+/* .text-center {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
     margin-top: 20px;
     color: #333;
     font-weight: bold;
-  }
+  } */
   
   .worker-list-container {
     margin: 20px auto;

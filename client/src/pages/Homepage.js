@@ -30,11 +30,11 @@ const Homepage = () => {
   }, []);
   return (
     <Layout>
-      <h1 className="text-center">Home Page</h1>
-      <h2>What are you looking for?</h2>
-      <Row>
+     
+      <h2 className=" font-semibold text-2xl pt-3">What are you looking for?</h2>
+      <div className=" flex gap-2 pt-3">
         {workers && workers.map(worker => <WorkerList worker={worker} />)}
-      </Row>
+      </div>
     </Layout>
   );
 };

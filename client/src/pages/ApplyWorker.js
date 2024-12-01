@@ -48,9 +48,9 @@ const ApplyWorker = () => {
   };
   return (
     <Layout>
-      <h1 className="text-center">Apply Worker</h1>
+      <h1 className="text-center font-semibold text-2xl py-3">Apply As Worker</h1>
       <Form layout="vertical" onFinish={handleFinish} className="m-3">
-        <h4 className="">Personal Details : </h4>
+        <h4 className=" font-semibold text-lg">Personal Details : </h4>
         <Row gutter={20}>
           <Col xs={24} md={24} lg={8}>
             <Form.Item
@@ -59,7 +59,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your first name" />
+              <Input type="text" placeholder="Enter First Name" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -69,7 +69,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your last name" />
+              <Input type="text" placeholder="Enter Last Name" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -79,7 +79,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your contact no" />
+              <Input type="text" placeholder="Enter Contact No." />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -89,7 +89,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="email" placeholder="your email address" />
+              <Input type="email" placeholder="Enter Email" />
             </Form.Item>
           </Col>
           {/* <Col xs={24} md={24} lg={8}>
@@ -108,7 +108,7 @@ const ApplyWorker = () => {
             </Form.Item>
           </Col>
         </Row>
-        <h4>Professional Details :</h4>
+        <h4 className=" font-semibold text-lg">Professional Details :</h4>
         <Row gutter={20}>
           <Col xs={24} md={24} lg={8}>
             <Form.Item
@@ -117,7 +117,7 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your specialization" />
+              <Input type="text" placeholder="Enter Your Specialization" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
@@ -127,17 +127,17 @@ const ApplyWorker = () => {
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your experience" />
+              <Input type="text" placeholder="Enter Your Experience in Years" />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
             <Form.Item
-              label="Fees Per Cunsaltation"
+              label="Fees Per Consultation"
               name="fees"
               required
               rules={[{ required: true }]}
             >
-              <Input type="text" placeholder="your contact no" />
+              <Input type="text" placeholder="Enter Your Contact No." />
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>

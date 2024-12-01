@@ -6,22 +6,22 @@ const WorkerList = ({ worker }) => {
   return (
     <>
       <div
-        className="card m-2"
+        className="card m-2 "
         style={{ cursor: "pointer" }}
         onClick={() => navigate(`/worker/book-appointment/${worker?._id}`)}
       >
-        <div className="card-header">
-          Mr. {worker?.firstName} {worker?.lastName}
+        <div className="card-header py-3">
+          <b>Mr. {worker?.firstName} {worker?.lastName}</b>
         </div>
-        <div className="card-body">
+        <div className="card-body py-3 flex flex-col gap-2">
           <p>
-            <b>Specialization</b> {worker?.speciality}
+            <b>Specialization:</b> {worker?.speciality}
           </p>
           <p>
-            <b>Experience</b> {worker?.experience}
+            <b>Experience:</b> {worker?.experience} years
           </p>
           <p>
-            <b>Fees Per Consultation</b> Rs.{worker?.fees}
+            <b>Fees Per Consultation:</b>  &#8377;{worker?.fees}
           </p>
           <p>
             {/* <b>Timings</b> {worker?.timings[0]} - {worker?.timings[1]} */}

@@ -105,21 +105,20 @@ const BookingPage = () => {
   }, []);
   return (
     <Layout>
-      <h3>Booking Page</h3>
+      <h3 className=" text-center text-lg font-semibold py-3">Booking Page</h3>
       <div className="container m-2">
         {workers &&
           <div>
-            <h4>
-              Mr.{workers.firstName} {workers.lastName}
+            <h4 className=" font-semibold px-2 pb-1">
+            Name: {workers.firstName} {workers.lastName}
             </h4>
-            <h4>
-              Fees : {workers.fees}
+            <h4 className=" font-semibold px-2 pb-1">
+              Fees:  &#8377;{workers.fees}
             </h4>
-            <h4>
-              Timings : {workers.timings && workers.timings[0]} -{" "}
-              {workers.timings && workers.timings[1]}{" "}
+            <h4 className=" font-semibold px-2 pb-2">
+              Specialization: {workers.speciality}
             </h4>
-            <div className="d-flex flex-column w-50">
+            <div className=" flex flex-col w-50">
             <DatePicker
               className="m-2"
               format="DD-MM-YYYY"
