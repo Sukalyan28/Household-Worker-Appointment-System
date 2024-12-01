@@ -15,6 +15,7 @@ import BookingPage from "./pages/BookingPage";
 import Appointments from "./pages/Appointments";
 import WorkerAppointments from "./pages/worker/WorkerAppointments";
 import UserProfile from "./pages/user/UserProfile";
+import { Error } from "./pages/Error";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
 
@@ -127,6 +128,10 @@ function App() {
                 </ProtectedRoutes>
               }
             />
+            <Route
+            path="*"
+            element={<Error/>}
+            ></Route>
 
           </Routes>
         )}
