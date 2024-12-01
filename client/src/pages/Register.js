@@ -32,9 +32,9 @@ const Register = () => {
         <Form
           layout="vertical"
           onFinish={onfinishHandler}
-          className="  border-2 border-black rounded-md px-3 pb-5 pt-4"
+          className=" mx-auto w-[25%] border-2 border-black rounded-md px-3 py-11 bg-[#f0f0f0]"
         >
-          <h3  className="text-center font-semibold text-xl">Signup</h3>
+          <h3  className="text-center font-semibold text-2xl pb-3">Signup</h3>
           <Form.Item label="Name" name="name">
             <Input type="text" required />
           </Form.Item>
@@ -44,12 +44,14 @@ const Register = () => {
           <Form.Item label="Password" name="password">
             <Input type="password" required />
           </Form.Item>
-          <Link to="/login" className="m-2 text-blue-100">
+          <div className=" flex items-center justify-between">
+          <Link to="/login" className="m-2 text-sky-500">
             Already user login here
           </Link>
           <button className="btn btn-primary" type="submit">
             Register
           </button>
+          </div>
         </Form>
       </div>
     </>

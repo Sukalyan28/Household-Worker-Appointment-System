@@ -64,7 +64,7 @@ const Appointments = () => {
   return (
     <Layout>
       <h1 className=" font-semibold text-2xl py-3">Appointment Lists</h1>
-      <Table columns={columns} dataSource={appointments} className=" border-2 rounded-lg bg-white" />
+      <Table columns={columns} dataSource={appointments} className=" border-2 rounded-lg bg-[#f0f0f0]" />
     </Layout>
   );
 };

@@ -38,9 +38,9 @@ const Login = () => {
       <Form
         layout="vertical"
         onFinish={onfinishHandler}
-        className=" border-2 border-black rounded-md px-3 pb-5 pt-3"
+        className="  mx-auto w-[25%] border-2 border-black rounded-md px-3 py-14 bg-[#f0f0f0]"
       >
-        <h3 className="text-center font-semibold text-xl">Login</h3>
+        <h3 className="text-center font-semibold text-2xl pb-4">Login</h3>
 
         <Form.Item label="Email" name="email">
           <Input type="email" placeholder="Enter your Email" required />
@@ -48,12 +48,14 @@ const Login = () => {
         <Form.Item label="Password" name="password">
           <Input type="password" placeholder=" Enter your password" required />
         </Form.Item>
-        <Link to="/register" className="m-2 text-blue-100">
+        <div className=" flex items-center justify-between pt-2">
+        <Link to="/register" className="m-2 text-sky-500">
           Not a user Register here
         </Link>
         <button className="btn btn-primary" type="submit">
           Login
         </button>
+        </div>
       </Form>
     </div>
   );
