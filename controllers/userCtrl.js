@@ -189,7 +189,7 @@ const bookAppointmnetController = async (req, res) => {
     console.log("user in bookAppointmentController",user)
     user?.notification.push({
       type: "New-appointment-request",
-      message: `A nEw Appointment Request from ${req.body.userInfo.name}`,
+      message: `A New Appointment Request from ${req.body.userInfo.name}`,
       onCLickPath: "/user/bookings"
     });
     await user.save();
