@@ -36,13 +36,13 @@ const Register = () => {
         >
           <h3  className="text-center font-semibold text-2xl pb-3">Signup</h3>
           <Form.Item label="Name" name="name">
-            <Input type="text" required />
+            <Input type="text" placeholder="Enter your Name" required />
           </Form.Item>
           <Form.Item label="Email" name="email">
-            <Input type="email" required />
+            <Input type="email" placeholder=" Enter your Email" required />
           </Form.Item>
           <Form.Item label="Password" name="password">
-            <Input type="password" required />
+            <Input type="password" placeholder="Enter Password" required />
           </Form.Item>
           <div className=" flex items-center justify-between">
           <Link to="/login" className="m-2 text-sky-500">

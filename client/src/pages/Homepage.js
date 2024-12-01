@@ -32,7 +32,7 @@ const Homepage = () => {
     <Layout>
      
       <h2 className=" font-semibold text-2xl pt-3">What are you looking for?</h2>
-      <div className=" flex gap-2 pt-3">
+      <div className=" flex gap-2 pt-3 flex-wrap">
         {workers && workers.map(worker => <WorkerList worker={worker} />)}
       </div>
     </Layout>
