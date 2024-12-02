@@ -32,19 +32,19 @@ module.exports = router;
 router.post("/apply-worker", authMiddleware, applyWorkerController);
 module.exports = router;
 
-//Notifiaction  Doctor || POST
+//Notifiaction  Worker || POST
 router.post(
   "/get-all-notification",
   authMiddleware,
   getAllNotificationController
 );
-//Notifiaction  Doctor || POST
+//Notifiaction  Worker || POST
 router.post(
   "/delete-all-notification",
   authMiddleware,
   deleteAllNotificationController
 );
-//GET ALL DOC
+//GET ALL Workers
 router.get("/getAllWorkers", authMiddleware, getAllWorkerController);
 
 //BOOK APPOINTMENT
