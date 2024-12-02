@@ -2,5 +2,5 @@
   "files.exclude": {
     "**/.git": false
   },
-  "workbench.colorTheme": "Visual Studio 2017 Light - C++"
+  "workbench.colorTheme": "Visual Studio 2017 Dark - C++"
 }

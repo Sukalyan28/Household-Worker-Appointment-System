@@ -80,7 +80,7 @@ const Layout = ({ children }) => {
   return (
     <>
       
-        <div className=" w-full h-[100vh] px-3 py-4 flex gap-4" >
+        <div className=" w-full  px-3 py-4 flex gap-4" >
           <div className="sidebar">
             <div className="logo">
               <h6>Menu</h6>
@@ -106,7 +106,7 @@ const Layout = ({ children }) => {
           </div>
         
            
-            <div className=" w-[80%] py-4  rounded-lg shadow-md bg-[#fff4c9]">
+            <div className=" w-[80%] py-4 h-max  rounded-lg shadow-md bg-[#fff4c9]">
             <div className=" flex justify-between px-4 items-center border-b border-gray-300 pb-3">
             <h1 className=" text-center font-bold text-4xl font-inter">Serve2Ease</h1>
             <div className=" text-right">
